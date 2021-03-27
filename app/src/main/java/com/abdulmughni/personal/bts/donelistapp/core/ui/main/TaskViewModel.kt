@@ -1,4 +1,4 @@
-package com.abdulmughni.personal.bts.donelistapp.core.ui
+package com.abdulmughni.personal.bts.donelistapp.core.ui.main
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel

@@ -1,4 +1,4 @@
-package com.abdulmughni.personal.bts.donelistapp.core.ui
+package com.abdulmughni.personal.bts.donelistapp.core.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View

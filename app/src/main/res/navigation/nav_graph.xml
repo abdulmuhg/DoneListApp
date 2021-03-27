@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.abdulmughni.personal.bts.donelistapp.core.ui.HomeFragment"
+        android:name="com.abdulmughni.personal.bts.donelistapp.core.ui.main.HomeFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_home">
 
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.abdulmughni.personal.bts.donelistapp.core.ui.NewTaskFragment"
+        android:name="com.abdulmughni.personal.bts.donelistapp.core.ui.main.NewTaskFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_new_task">
 
@@ -25,4 +25,5 @@
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
+
 </navigation>

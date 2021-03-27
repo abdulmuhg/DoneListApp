@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_auth"
+    app:startDestination="@id/fragmentAuth">
+
+    <fragment
+        android:id="@+id/LoginFragment"
+        android:name="com.abdulmughni.personal.bts.donelistapp.core.ui.auth.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login" />
+
+    <fragment
+        android:id="@+id/RegisterFragment"
+        android:name="com.abdulmughni.personal.bts.donelistapp.core.ui.auth.RegisterFragment"
+        android:label="Register Fragment"
+        tools:layout="@layout/fragment_register" />
+
+    <fragment
+        android:id="@+id/fragmentAuth"
+        android:name="com.abdulmughni.personal.bts.donelistapp.core.ui.auth.FragmentAuth"
+        android:label="fragment_auth"
+        tools:layout="@layout/fragment_auth">
+
+        <action
+            android:id="@+id/action_to_login"
+            app:destination="@id/LoginFragment" />
+        <action
+            android:id="@+id/action_to_register"
+            app:destination="@id/RegisterFragment" />
+    </fragment>
+
+</navigation>

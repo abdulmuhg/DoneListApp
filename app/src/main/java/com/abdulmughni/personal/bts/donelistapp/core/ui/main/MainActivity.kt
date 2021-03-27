@@ -1,19 +1,14 @@
-package com.abdulmughni.personal.bts.donelistapp.core.ui
+package com.abdulmughni.personal.bts.donelistapp.core.ui.main
 
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation.findNavController
-import androidx.navigation.fragment.findNavController
 
-import androidx.navigation.fragment.findNavController
 import com.abdulmughni.personal.bts.donelistapp.R
-import com.abdulmughni.personal.bts.donelistapp.core.domain.model.Task
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
