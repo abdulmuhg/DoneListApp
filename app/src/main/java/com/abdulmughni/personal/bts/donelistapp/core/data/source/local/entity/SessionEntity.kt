@@ -5,15 +5,13 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "user")
-data class UserEntity(
-    @PrimaryKey(autoGenerate = true)
+@Entity(tableName = "session")
+data class SessionEntity(
+    @PrimaryKey
     @NonNull
     @ColumnInfo(name = "id")
     val id: Int,
-
     var name: String,
     var email: String,
-    
     var password: String
 )

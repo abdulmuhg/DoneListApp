@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.abdulmughni.personal.bts.donelistapp.core.data.source.local.room.TaskDao
 import com.abdulmughni.personal.bts.donelistapp.core.data.source.local.room.DoneListDatabase
+import com.abdulmughni.personal.bts.donelistapp.core.data.source.local.room.SessionDao
 import com.abdulmughni.personal.bts.donelistapp.core.data.source.local.room.UserDao
 import dagger.Module
 import dagger.Provides
@@ -29,4 +30,7 @@ class DatabaseModule {
 
     @Provides
     fun provideUserDao(database: DoneListDatabase): UserDao = database.userDao()
+
+    @Provides
+    fun provideSessionDao(database: DoneListDatabase): SessionDao = database.sessionDao()
 }

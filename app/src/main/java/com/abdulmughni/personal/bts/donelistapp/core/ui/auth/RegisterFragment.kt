@@ -7,7 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.abdulmughni.personal.bts.donelistapp.core.domain.model.User
 import com.abdulmughni.personal.bts.donelistapp.core.ui.main.MainActivity
+import com.abdulmughni.personal.bts.donelistapp.core.ui.main.MainActivity.Companion.EXTRA_USER
+import com.abdulmughni.personal.bts.donelistapp.core.utils.DataMapper
 import com.abdulmughni.personal.bts.donelistapp.databinding.FragmentRegisterBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -28,8 +31,18 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         binding.buttonRegister.setOnClickListener {
-            startActivity(Intent(requireContext(), MainActivity::class.java))
+            val user = User(
+                name = binding.name.text.toString(),
+                email = binding.email.text.toString(),
+                password = binding.password.text.toString()
+            )
+            viewModel.register(user)
+            viewModel.addSession(DataMapper.convertUserToSessionUser(user))
+            val intent = Intent(requireContext(), MainActivity::class.java)
+            intent.putExtra("name", EXTRA_USER)
+            startActivity(intent)
         }
     }
 }

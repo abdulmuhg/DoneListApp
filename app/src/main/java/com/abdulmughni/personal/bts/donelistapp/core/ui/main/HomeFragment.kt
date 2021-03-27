@@ -10,12 +10,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.abdulmughni.personal.bts.donelistapp.R
 import com.abdulmughni.personal.bts.donelistapp.core.data.Resource
 import com.abdulmughni.personal.bts.donelistapp.core.ui.adapter.TaskListAdapter
+import com.abdulmughni.personal.bts.donelistapp.core.ui.auth.AuthenticationViewModel
 import com.abdulmughni.personal.bts.donelistapp.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
     private val viewModel: TaskViewModel by viewModels()
+    private val authViewModel: AuthenticationViewModel by viewModels()
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
@@ -29,6 +31,12 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        authViewModel.session.observe(viewLifecycleOwner, {session ->
+            if (session.data != null){
+                binding.textHelloName.text = session.data.name
+            }
+        })
 
         val taskAdapter = TaskListAdapter()
         taskAdapter.onItemClick = { selectedData ->
