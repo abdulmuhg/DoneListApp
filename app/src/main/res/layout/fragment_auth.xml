@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
+    android:visibility="invisible"
     tools:context=".core.ui.auth.FragmentAuth">
 
     <com.google.android.material.button.MaterialButton
