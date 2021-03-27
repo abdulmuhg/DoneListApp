@@ -26,7 +26,6 @@ object DataMapper {
 
     fun mapDomainToEntities(it: Task): TaskEntity =
         TaskEntity(
-            id = it.id,
             title = it.title,
             description = it.description,
             isDone = it.isDone

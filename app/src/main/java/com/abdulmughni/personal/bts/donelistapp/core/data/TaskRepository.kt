@@ -6,6 +6,7 @@ import com.abdulmughni.personal.bts.donelistapp.core.data.source.remote.RemoteDa
 import com.abdulmughni.personal.bts.donelistapp.core.data.source.remote.network.ApiResponse
 import com.abdulmughni.personal.bts.donelistapp.core.domain.model.Task
 import com.abdulmughni.personal.bts.donelistapp.core.domain.repository.ITaskRepository
+import com.abdulmughni.personal.bts.donelistapp.core.utils.AppExecutors
 import com.abdulmughni.personal.bts.donelistapp.core.utils.DataMapper
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -15,7 +16,8 @@ import javax.inject.Singleton
 @Singleton
 class TaskRepository @Inject constructor(
     private val localDataSource: LocalDataSource,
-    private val remoteDataSource: RemoteDataSource
+    private val remoteDataSource: RemoteDataSource,
+    private val appExecutors: AppExecutors
 ): ITaskRepository {
     override fun getAllTask(): Flow<Resource<List<Task>>> =
         object: NetworkBoundResource<List<Task>, List<TaskEntity>>(){
@@ -37,6 +39,6 @@ class TaskRepository @Inject constructor(
 
     override fun inputTaskItem(task: Task){
         val taskEntity = DataMapper.mapDomainToEntities(task)
-        localDataSource.insertTaskItem(taskEntity)
+        appExecutors.diskIO().execute { localDataSource.insertTaskItem(taskEntity) }
     }
 }
