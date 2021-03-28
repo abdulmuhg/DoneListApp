@@ -39,9 +39,7 @@ class HomeFragment : Fragment() {
         })
 
         val taskAdapter = TaskListAdapter()
-        taskAdapter.onItemClick = { selectedData ->
 
-        }
         viewModel.doneList.observe(viewLifecycleOwner, { task ->
             if (task != null){
                 when(task){

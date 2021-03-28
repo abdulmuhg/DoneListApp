@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.abdulmughni.personal.bts.donelistapp.R
@@ -44,6 +45,7 @@ class LoginFragment : Fragment() {
                     )
                     goToMainActivity(user.data)
                 } else {
+                    Toast.makeText(requireContext(), "Username or password wrong!", Toast.LENGTH_SHORT).show()
                     binding.textError.tvError.text =
                         user?.message ?: getString(R.string.something_wrong)
                 }
@@ -55,5 +57,6 @@ class LoginFragment : Fragment() {
         val intent = Intent(requireContext(), MainActivity::class.java)
         intent.putExtra(EXTRA_USER, user)
         startActivity(intent)
+        activity?.finish()
     }
 }

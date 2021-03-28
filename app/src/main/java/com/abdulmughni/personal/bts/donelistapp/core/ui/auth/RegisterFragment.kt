@@ -43,6 +43,7 @@ class RegisterFragment : Fragment() {
             val intent = Intent(requireContext(), MainActivity::class.java)
             intent.putExtra("name", EXTRA_USER)
             startActivity(intent)
+            activity?.finish()
         }
     }
 }

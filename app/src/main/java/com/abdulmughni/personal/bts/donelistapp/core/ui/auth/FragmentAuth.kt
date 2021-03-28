@@ -38,6 +38,7 @@ class FragmentAuth : Fragment() {
                 viewModel.user.value = DataMapper.convertSessionToUser(session.data)
                 goToMainActivity(DataMapper.convertSessionToUser(session.data))
             } else {
+                binding.progressBar.visibility = View.GONE
                 binding.root.visibility = View.VISIBLE
             }
         })

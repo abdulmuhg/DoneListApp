@@ -28,18 +28,18 @@
         tools:listitem="@layout/item_list_task" />
 
     <ProgressBar
+        android:id="@+id/progressBar"
         android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@id/rvTask"
         app:layout_constraintEnd_toEndOf="@id/rvTask"
         app:layout_constraintTop_toTopOf="@id/rvTask"
-        app:layout_constraintBottom_toBottomOf="@id/rvTask"
-        android:id="@+id/progressBar"/>
+        app:layout_constraintBottom_toBottomOf="@id/rvTask" />
 
     <include
+        android:id="@+id/text_error"
         android:visibility="gone"
-        android:id="@+id/textError"
         app:layout_constraintStart_toStartOf="@id/rvTask"
         app:layout_constraintEnd_toEndOf="@id/rvTask"
         app:layout_constraintTop_toTopOf="@id/rvTask"
